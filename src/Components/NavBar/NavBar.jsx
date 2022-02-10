@@ -7,7 +7,7 @@ import {
     NavMenu,
     NavBtn,
     NavBtnLink,
-} from "./NavbarElements";
+} from "../NavBar/NavBarElements.jsx"
 
 const Navbar = () => {
     return (
