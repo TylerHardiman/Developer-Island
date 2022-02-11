@@ -1,18 +1,49 @@
-import React, { useState, useRef } from "react";
-import cn from "classnames";
-import "./styles.css";
+import React, { useState} from 'react';
 
-const INITIAL_HEIGHT = 46;
 
-const CommentBox = () => {
-  const [isExpanded, setIsExpanded] = useState(false); //boolean to expand box
-  const [commentValue, setCommentValue] = useState(""); // stores comment input
+const CreatePost  = props => {
 
-  const outerHeight = useRef(INITIAL_HEIGHT);
-  const textRef = useRef(null);
-  const containerRef = useRef(null);
+  const [name, setName] = useState('');
+  const [content, setContent] = useState('');
 
-  return ();
-};
 
-export default CommentBox;
+  function handleSubmit(e){
+    e.preventDefault();
+
+
+    props.addPost(name, content);
+
+    setName('');
+    setContent('');
+
+  }
+
+  function handleName(event){
+    setName(event.target.value);
+}
+
+  function handleContent(event){
+    setContent(event.target.value);
+}
+
+
+  return ( 
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div>
+        <label>Name</label>
+        <input required value={name} onChange={handleName} type="text" />
+        </div>
+        <div>
+        <label>What's on your mind?</label>
+        <input required value={content} onChange={handleContent} type="text" /> 
+        </div>
+        <button type="submit" >Post</button>
+      </form>
+    </div>
+
+    
+   );
+}
+ 
+export default CreatePost;
