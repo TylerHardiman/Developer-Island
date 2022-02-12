@@ -1,31 +1,25 @@
 import React from "react";
-import CreatePost from "../CreatePost/CreatePost.jsx";
-import Post from "../Posting/Post.jsx";
+import Buttons from "./Buttons";
 
 
-const Feed = props => {
-    const [allPost, setAllPost] = useState([]);
 
-    function addPost (name, content) {
-    setAllPost([...setAllPost, {name: name, content: content, date: new Date().toDateString()}, ...allPost]);
-    
-    }
-
-    function displayPost({
-        return allPost.map(post => 
-        <Post name={post.name} content={post.content} date={post.date} />
-    })
+const DisplayPosts = (props) => {
 
     return ( 
-        <div>
-
-            <CreatePost addPost={addPost} />
-            {allPost.map(post => {
-               <Post /> 
-            })}
-            
-        </div>
+        <table clasName='table'>
+        <tbody>
+          {props.parentPosts.map((post) => {
+            return (
+              <body className='post-box'>
+                <td>{post.name}</td>
+                <td>{post.post}</td>
+                <td><Buttons /></td>
+              </body>
+            );
+          })}
+        </tbody>
+      </table>
      );
-     export default Feed;
 }
  
+export default DisplayPosts;
