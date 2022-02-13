@@ -11,9 +11,6 @@ const CreatePost  = props => {
   function handleSubmit(e){
     e.preventDefault();
 
-
-    props.addPost(name, content, idea); 
-
     setName('');
     setContent('');
     setIdea('');
@@ -47,7 +44,7 @@ const CreatePost  = props => {
         <label>What's on your mind?</label>
         <input required value={idea} onChange={handleIdea} type="text" /> 
         </div>
-        <button type="Buttons" >Submit</button>
+        <button type="btn" >Submit</button>
       </form>
     </div>
 

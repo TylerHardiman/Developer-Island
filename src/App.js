@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import CreatePost from "./Components/CreatePost/CreatePost";
 import "./App.css";
-import DisplayPosts from "./Components/Feed/Feed";
-
 
 function App() {
 
     const [createPost, setCreatePost] = useState([])
+    const [displayAllPost, setDisplayAllPost] = useState([])
+
+    function showMePost(post) {
+      let showPost = [...displayAllPost, post]
+
+      setDisplayAllPost(showPost)
+    }
 
     function addNewPost(post) {
         let reviewPost = [...createPost, post]
@@ -20,7 +25,7 @@ function App() {
       <h1 style={{margin: '1em'}}>Intermodal Coder Social</h1>
       <div className='col-md-6'>
         <div className='border-box'>
-          <setDisplayPost parentDisplayPost={DisplayPosts} />
+          <displayAllPost parentdisplayPost={showMePost} />
         </div>
         <div className='border-box'>
           <CreatePost parentCreatePost={addNewPost}/>

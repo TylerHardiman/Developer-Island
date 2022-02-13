@@ -22,4 +22,4 @@ const DisplayPosts = (props) => {
      );
 }
  
-export default DisplayPosts;
+export default SetDisplayPosts;
